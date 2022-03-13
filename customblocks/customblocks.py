@@ -208,7 +208,8 @@ class CustomBlocksProcessor(BlockProcessor):
             blocks[0] = self.RE_END.sub('', blocks[0])
 
         typeGenerators.update(self.config['generators'])
-        generator = self._getGenerator(typeGenerators.get(blocktype, container))
+        # generator = self._getGenerator(typeGenerators.get(blocktype, container))
+        generator = self._getGenerator(typeGenerators.get(blocktype, self.config['fallback']))
 
         ctx = ns()
         ctx.type = blocktype
