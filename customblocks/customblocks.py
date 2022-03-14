@@ -45,8 +45,10 @@ class CustomBlocksExtension(Extension):
 class CustomBlocksProcessor(BlockProcessor):
     # Detects headlines
     RE_HEADLINE = re.compile(
-        r'(?:^|\n)::: *' # marker
-        r'([\w\-]+)' # keyword
+        # r'(?:^|\n)::: *' # marker
+        # r'([\w\-]+)' # keyword
+        r'(?:^|\n)\. *' # marker
+        r'([a-z0-9]+-[a-z0-9\-]+)' # keyword
         r'(?: +(?:[\w]+=)?(' # params (optional keyword)
             r"'(?:\\.|[^'])*'|" # single quoted
             r'"(?:\\.|[^"])*"|' # double quoted
